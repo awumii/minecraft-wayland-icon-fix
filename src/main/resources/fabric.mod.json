@@ -3,7 +3,7 @@
 	"id": "waylandiconfix",
 	"version": "${version}",
 	"name": "Wayland Icon Fix",
-	"description": "Forces Minecraft to set a window icon on Wayland. Requires a patched GLFW.",
+	"description": "Forces Minecraft to set a window icon on Wayland. Requires a patched GLFW from https://github.com/awumii/glfw-wayland.",
 	"authors": [
 		"awumii"
 	],

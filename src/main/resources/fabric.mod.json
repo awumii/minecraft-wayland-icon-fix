@@ -16,7 +16,7 @@
 	"environment": "client",
 	"entrypoints": {
 		"client": [
-			"com.github.awumii.MinecraftWaylandIconFixMod"
+			"com.github.awumii.WaylandIconFixMod"
 		]
 	},
 	"mixins": [

@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "com.github.awumii.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"WindowMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

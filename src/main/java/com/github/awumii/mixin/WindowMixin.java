@@ -1,6 +1,6 @@
 package com.github.awumii.mixin;
 
-import com.github.awumii.MinecraftWaylandIconFixMod;
+import com.github.awumii.WaylandIconFixMod;
 import org.lwjgl.glfw.GLFW;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -22,8 +22,8 @@ public class WindowMixin {
 
 		// Running on X11 - Just display a warning
 		if (platform != GLFW.GLFW_PLATFORM_WAYLAND) {
-			MinecraftWaylandIconFixMod.LOGGER.warn("Not on Wayland: Not doing anything!");
-			MinecraftWaylandIconFixMod.LOGGER.warn(
+			WaylandIconFixMod.LOGGER.warn("Not on Wayland: Not doing anything!");
+			WaylandIconFixMod.LOGGER.warn(
 					"If you are sure that you are using a Wayland desktop session, you have to install a patched GLFW first. " +
 					"Make sure you actually forced the game to use the patched GLFW instead of the built-in library.");
             return original;
@@ -31,7 +31,7 @@ public class WindowMixin {
 
 		// Running on Wayland - perform the trickery
 		if (original == 393219) {
-			MinecraftWaylandIconFixMod.LOGGER.info("Wayland detected: Forcing Minecraft to display the window icon.");
+			WaylandIconFixMod.LOGGER.info("Wayland detected: Forcing Minecraft to display the window icon.");
             return 393220;
         }
 		return original;

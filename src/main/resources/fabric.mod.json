@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
-	"id": "minecraftwaylandiconfix",
+	"id": "waylandiconfix",
 	"version": "${version}",
-	"name": "Minecraft Wayland Icon Fix",
+	"name": "Wayland Icon Fix",
 	"description": "Forces Minecraft to set a window icon on Wayland. Requires a patched GLFW.",
 	"authors": [
 		"Me!"
@@ -12,7 +12,7 @@
 		"sources": "https://github.com/awumii/minecraft-wayland-icon-fix"
 	},
 	"license": "MIT",
-	"icon": "assets/minecraftwaylandiconfix/icon.png",
+	"icon": "assets/waylandiconfix/icon.png",
 	"environment": "client",
 	"entrypoints": {
 		"client": [
@@ -20,7 +20,7 @@
 		]
 	},
 	"mixins": [
-		"minecraftwaylandiconfix.mixins.json"
+		"waylandiconfix.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.14.21",

@@ -5,7 +5,7 @@
 	"name": "Wayland Icon Fix",
 	"description": "Forces Minecraft to set a window icon on Wayland. Requires a patched GLFW.",
 	"authors": [
-		"Me!"
+		"awumii"
 	],
 	"contact": {
 		"homepage": "https://github.com/awumii/minecraft-wayland-icon-fix",

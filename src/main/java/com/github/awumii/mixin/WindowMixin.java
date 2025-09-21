@@ -3,12 +3,17 @@ package com.github.awumii.mixin;
 import com.github.awumii.WaylandIconFixMod;
 import org.lwjgl.glfw.GLFW;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import net.minecraft.client.util.Window;
+import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(Window.class)
 public class WindowMixin {
+    @Unique
+    private boolean injectedAppID;
+
 	@ModifyVariable(method = "setIcon", at = @At("STORE"), ordinal = 0)
 	private int platformTrick(int original) {
 		/*
@@ -36,4 +41,17 @@ public class WindowMixin {
         }
 		return original;
 	}
+
+    // Normally this should have been an @Inject, but since this is a constructor, injecting is not allowed.
+    // Other mods (Sodium and Sodium Extras) already redirect glfwCreateWindow and glfwDefaultWindowHints, so there is no other choice left.
+    @Redirect(method = "<init>", at = @At(value = "INVOKE", target = "Lorg/lwjgl/glfw/GLFW;glfwWindowHint(II)V"))
+    private void injectWindowHint(int hint, int value) {
+        if (this.injectedAppID) return;
+
+        WaylandIconFixMod.LOGGER.info("Injecting Wayland app_id");
+        GLFW.glfwWindowHintString(GLFW.GLFW_WAYLAND_APP_ID, "minecraft"); // This method is silently ignored on anything non-wayland.
+        this.injectedAppID = true;
+
+        GLFW.glfwWindowHint(hint, value); //original call
+    }
 }

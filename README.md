@@ -16,3 +16,15 @@ Before:
 ![Alt1](.github/before.png) 
 After:
 ![Alt2](.github/after.png) 
+
+## Window icon under GNOME
+GNOME doesn't support the standard protocol for setting window icons on Wayland, and requires a .desktop file. This mod sets Minecraft's WM_CLASS under wayland to "minecraft", which you can use in your desktop file. You can place the file in `~/.local/share/applications`:
+```ini
+[Desktop Entry]
+Type=Application
+Categories=Game;ActionGame;AdventureGame;Simulation
+Exec="/usr/bin/prismlauncher"
+Name=Minecraft
+Icon=/home/admin/.local/share/PrismLauncher/instances/Minecraft/icon.png
+StartupWMClass=minecraft
+```

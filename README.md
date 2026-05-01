@@ -1,3 +1,5 @@
+# ⚠️ Outdated, use this instead ⚠️
+https://github.com/jdkeke142/WayFix/tree/wayland-fixes
 # Minecraft (1.21.x) Wayland Icon Fix (for Fabric)
 This simple Fabric mod fixes the Minecraft window icon when running the game natively on Wayland.  
 
